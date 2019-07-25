@@ -75,22 +75,20 @@ elsif node['platform_family'] == 'suse'
 	if node['platform_version'] =~ /^11\.[2-4]$/
 		$dmidecode = "pmtools"
 		$sensor_flavor = 'sles11'
-		$enforcement = false
-		$deep_visibility_agent = false
-		$legacy_deep_visibility_agent = true
+		$enforcement = true
+		$deep_visibility_agent = true
 	elsif node['platform_version'] =~ /^12\.[0-9]+$/
 		$dmidecode = "dmidecode"
 		$sensor_flavor = 'sles12'
-		$enforcement = false
-		$deep_visibility_agent = false
-		$legacy_deep_visibility_agent = true
+		$enforcement = true
+		$deep_visibility_agent = true
 	else
 		raise "#{node['platform']} #{node['platform_version']} not supported"
 	end
 elsif node['platform_family'] == 'windows'
-	if node['platform_version'] =~ /^6\.[0-3]/
-		found_os = 'windows'
-	end
+	found_os = 'windows'
+	$enforcement = true
+	$deep_visibility_agent = true
 else
 		raise "#{node['platform']} #{node['platform_version']} not supported"
 end
