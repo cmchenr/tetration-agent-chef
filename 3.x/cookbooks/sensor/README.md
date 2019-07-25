@@ -1,18 +1,16 @@
 # sensor Cookbook
 
-TODO: Enter the cookbook description here.
-
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+This is a sample cookbook to install the Cisco Tetration agent on supported server platforms.
 
 ## Requirements
 
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
+Agent pre-requisites can be found in your Tetration site documentation at https://%your_tetration_url%/documentation/ui/software_agents/deployment.html
 
-e.g.
+The cookbook must be run with root privilages on Linux systems and Administrator privilages on Windows.
+
 ### Platforms
 
-- SandwichOS
+Supported operating systems can be found in your Tetration site documentation at https://%your_tetration_url%/documentation/ui/software_agents/deployment.html
 
 ### Chef
 
@@ -20,37 +18,21 @@ e.g.
 
 ### Cookbooks
 
-- `toaster` - sensor needs toaster to brown your bagel.
-
-## Attributes
-
-TODO: List your cookbook attributes here.
-
-e.g.
-### sensor::default
-
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['sensor']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
+- `sensor` - Detects the OS type and executes the deployment-specific installer script.
 
 ## Usage
 
 ### sensor::default
 
-TODO: Write usage instructions for each cookbook.
+Tetration installers are specific to each customer deployment.  Prior to adding the cookbook to the run list, the installer files must be placed in the "files" subfolder of the cookbook repo.  The following 4 files are required:
 
-e.g.
+- tetration_installer_enforcer_linux.sh
+- tetration_installer_enforcer_windows.ps1
+- tetration_installer_sensor_linux.sh
+- tetration_installer_sensor_windows.ps1
+
+Instructions on obtaining these files for a specific Tetration deployment can be found in your Tetration site documentation at https://%your_tetration_url%/documentation/ui/software_agents/deployment.html
+
 Just include `sensor` in your node's `run_list`:
 
 ```json
@@ -61,6 +43,10 @@ Just include `sensor` in your node's `run_list`:
   ]
 }
 ```
+
+## Caveats
+
+This cookbook applies to x86/x64 Linux and Windows deployments only.  As of this writing, Tetration also supports AIX 7.1 and 7.2 and SLES on zSystems, but they are not supported by this cookbook.
 
 ## Contributing
 
