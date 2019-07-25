@@ -275,9 +275,9 @@ function List-Available-Version {
     $ContentType=""
     $Ts=Get-Date -UFormat "%Y-%m-%dT%H:%M:%S+0000"
 
-    $ApiServer="https://64.100.1.197"
-    $ApiKey="0723d9f2fe3041d7aae74fbf4170a8a5"
-    $ApiSecret="5d28a525011b00a8a7ce9ae809fb98d55c27de80"
+    $ApiServer="https://172.17.0.5"
+    $ApiKey="265f92f442df4903bb886e82734061f4"
+    $ApiSecret="b7a97be93b1ef88502904ee693e20c061ed2d74c"
     $Url=$ApiServer + $Uri
 
     # Calculate the signature based on the params
@@ -376,9 +376,9 @@ function Install-Package {
     Log-Write-Host ("Timestamp: " + $Ts)
     $DownloadedFolder="tet-sensor-downloaded"
     $ZipFile=$DownloadedFolder + ".zip"
-    $ApiServer="https://64.100.1.197"
-    $ApiKey="0723d9f2fe3041d7aae74fbf4170a8a5"
-    $ApiSecret="5d28a525011b00a8a7ce9ae809fb98d55c27de80"
+    $ApiServer="https://172.17.0.5"
+    $ApiKey="265f92f442df4903bb886e82734061f4"
+    $ApiSecret="b7a97be93b1ef88502904ee693e20c061ed2d74c"
     $Url=$ApiServer + $Uri
     Log-Write-Host ("URL: " + $Url)
     Log-Write-Host ("Server: " + $ApiServer)
